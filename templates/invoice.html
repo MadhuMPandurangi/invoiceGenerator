@@ -24,7 +24,7 @@
   left: 50%;
   width: 100%;
   height: 100%;
-  background-image: url('image/logo.png'); /* Change the path to your logo image */
+  background-image: url('/static/image/logo.png'); /* Change the path to your logo image */
   background-size: contain; /* Ensure the image scales correctly */
   background-repeat: no-repeat;
   background-position: center;
@@ -137,11 +137,11 @@
           <table>
             <tr>
               <td class="title">
-                <img src="image/logo.png" style="height: 100px;">
+                <img src="/static/image/logo.png" style="height: 100px;">
               </td>
               <td>
                 Invoice #: 123<br>
-                Created: July 2, 2018<br>
+                Created: {{date}}<br>
                 Due: August 1, 2018
               </td>
             </tr>
