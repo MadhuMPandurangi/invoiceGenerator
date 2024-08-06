@@ -131,6 +131,7 @@
 
 <body>
   <div class="invoice-box">
+    <center><b>TAX INVOICE</b></center>
     <table cellpadding="0" cellspacing="0">
       <tr class="top">
         <td colspan="2">
@@ -140,9 +141,9 @@
                 <img src="/static/image/logo.png" style="height: 100px;">
               </td>
               <td>
-                Invoice #: 123<br>
-                Created: {{date}}<br>
-                Due: August 1, 2018
+                Invoice #: {{invoice_number}}<br>
+                Bill Date: {{date}}<br>
+                GSTIN: {{from_addr['GSTIN']}}
               </td>
             </tr>
           </table>
@@ -154,61 +155,105 @@
           <table>
             <tr>
               <td>
-                Python Tips.<br>
-                12345 Sunny Road<br>
-                Sunnyville, CA 12345
+                  <b>Seller Information</b> <br>
+                  {{from_addr['seller_name']}}<br>
+                  {{from_addr['addr']}}<br>
+                  {{from_addr['ph']}}<br>
+                  {{from_addr['email']}}<br>
+                  {{from_addr['state']}}
               </td>
               <td>
-                Acme Corp.<br>
-                John Doe<br>
-                john@example.com
+                  <b>Buyer Information</b> <br>
+                  {{to_addr['buyer_name']}}<br>
+                  {{to_addr['addr']}}<br>
+                  {{to_addr['ph']}}<br>
+                  {{to_addr['email']}}
               </td>
             </tr>
           </table>
         </td>
       </tr>
-      
+    </table>
+      <table>
       <tr class="heading">
         <td>
-          Item
+            S.NO.
         </td>
         <td>
-          Price
+            Description
+        </td>
+        <td>
+            Duration
+        </td>
+        <td>
+            Code
+        </td>
+        <td>
+            Price (₹)
+        </td>
+        <td>
+            Discount (₹)
+        </td>
+        <td>
+            Tax. Amt. (₹)
+        </td>
+        <td>
+            GST%
+        </td>
+        <td>
+            GST Amt. (₹)
+        </td>
+        <td>
+            Total (₹)
         </td>
       </tr>
       
       <tr class="item">
-        <td>
-          Website design
-        </td>
-        <td>
-          $300.00
-        </td>
-      </tr>
-      
-      <tr class="item">
-        <td>
-          Hosting (3 months)
-        </td>
-        <td>
-          $75.00
-        </td>
-      </tr>
-      
-      <tr class="item last">
-        <td>
-          Domain name (1 year)
-        </td>
-        <td>
-          $10.00
-        </td>
+          <td>
+              {{items['sno']}}
+          </td>
+          <td>
+              {{items['description']}}
+          </td>
+          <td>
+              {{items['duration']}}
+          </td>
+          <td>
+            {{items['code']}}
+          </td>
+          <td>
+            {{items['price']}}
+          </td>
+          <td>
+            {{items['discount']}}
+          </td>
+          <td>
+            {{tax_amt}}
+          </td>
+          <td>
+            {{items['gst']}}
+          </td>
+          <td>
+            {{gst_amt}}
+          </td>
+          <td>
+            {{total}}
+          </td>
       </tr>
       
       <tr class="total">
-        <td></td>
-        <td>
-           Total: $385.00
-        </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Rounded</td>
+          <td>off:</td>
+          <td>
+            <b>₹{{round_tot}}</b>
+          </td>
       </tr>
     </table>
   </div>
