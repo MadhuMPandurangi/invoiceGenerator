@@ -126,6 +126,11 @@
   .rtl table tr td:nth-child(2) {
     text-align: left;
   }
+  .terms {
+    padding-top: 20px;
+    font-size: 12px;
+    color: #555;
+  }
   </style>
 </head>
 
@@ -174,7 +179,8 @@
         </td>
       </tr>
     </table>
-      <table>
+
+    <table>
       <tr class="heading">
         <td>
             S.NO.
@@ -186,22 +192,19 @@
             Duration
         </td>
         <td>
-            Code
-        </td>
-        <td>
             Price (₹)
         </td>
         <td>
             Discount (₹)
         </td>
         <td>
-            Tax. Amt. (₹)
+            Discounted Price (₹)
         </td>
         <td>
-            GST%
+            CGST (2.5%)
         </td>
         <td>
-            GST Amt. (₹)
+            SGST (2.5%)
         </td>
         <td>
             Total (₹)
@@ -219,9 +222,6 @@
               {{items['duration']}}
           </td>
           <td>
-            {{items['code']}}
-          </td>
-          <td>
             {{items['price']}}
           </td>
           <td>
@@ -231,31 +231,37 @@
             {{tax_amt}}
           </td>
           <td>
-            {{items['gst']}}
+            {{cgst}}
           </td>
           <td>
-            {{gst_amt}}
+            {{cgst}}
           </td>
           <td>
             {{total}}
           </td>
       </tr>
-      
+    </table>
+
+    <table>
       <tr class="total">
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>Rounded</td>
-          <td>off:</td>
-          <td>
-            <b>₹{{round_tot}}</b>
-          </td>
+        <td>Rounded off: <b>₹{{round_tot}}</b></td>
       </tr>
     </table>
+    <table>
+      <tr class="total">
+        <td colspan="6">Total in words: <b>Eight Thousand Two Hundred and Ninty Four Rupees Only</b></td>
+      </tr>
+    </table>
+
+    <div class="terms">
+      
+      <p>*Terms & Conditions:<br>
+      1. ONLINE PAYMENTS ARE SUBJECT TO REALISATION<br>
+      2. NON REFUNDABLE<br>
+      3. NON TRANSFERABLE</p>
+      <h4>This is a digitally generated document and does not require a signature.</h4>
+    </div>
+
   </div>
   <div class="divFooter"></div>
 </body>

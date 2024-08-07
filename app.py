@@ -33,6 +33,7 @@ def hello_world():
     duedate = "August 1, 2018"
     tax_amt = items['price'] - items['discount']
     gst_amt = round(tax_amt*((items['gst'])/100),2)
+    cgst = gst_amt/2
     total = tax_amt + gst_amt
     round_tot = round(total)
     return render_template('invoice.html',
@@ -43,6 +44,7 @@ def hello_world():
                             total = total,
                             tax_amt = tax_amt,
                             gst_amt = gst_amt,
+                            cgst = round(cgst,2),
                             round_tot = round_tot,
                             invoice_number = invoice_number,
                             duedate = duedate)
