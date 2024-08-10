@@ -24,7 +24,7 @@
   left: 50%;
   width: 100%;
   height: 100%;
-  background-image: url('/static/image/logo.png'); /* Change the path to your logo image */
+  background-image: url('http://127.0.0.1:5000/static/image/logo.png'); /* Use absolute URL */
   background-size: contain; /* Ensure the image scales correctly */
   background-repeat: no-repeat;
   background-position: center;
@@ -107,7 +107,7 @@
   div.divFooter {
     position: fixed;
     height: 30px;
-    background-color: purple;
+    background-color: rgb(6, 0, 128);
     bottom: 0;
     width: 100%;
     left: 0;
@@ -143,7 +143,7 @@
           <table>
             <tr>
               <td class="title">
-                <img src="/static/image/logo.png" style="height: 100px;">
+                <img src="http://127.0.0.1:5000/static/image/logo.png" style="height: 100px;">
               </td>
               <td>
                 Invoice #: {{invoice_number}}<br>
@@ -189,6 +189,9 @@
             Description
         </td>
         <td>
+            Code
+        </td>
+        <td>
             Duration
         </td>
         <td>
@@ -213,19 +216,22 @@
       
       <tr class="item">
           <td>
-              {{items['sno']}}
+              {{1}}
           </td>
           <td>
-              {{items['description']}}
+              {{desc}}
           </td>
           <td>
-              {{items['duration']}}
+              {{code}}
           </td>
           <td>
-            {{items['price']}}
+              {{duration}}
           </td>
           <td>
-            {{items['discount']}}
+            {{price}}
+          </td>
+          <td>
+            {{discount}}
           </td>
           <td>
             {{tax_amt}}
@@ -249,7 +255,7 @@
     </table>
     <table>
       <tr class="total">
-        <td colspan="6">Total in words: <b>Eight Thousand Two Hundred and Ninty Four Rupees Only</b></td>
+        <td colspan="6">Total in words: <b>{{price_in_words}} rupees only</b></td>
       </tr>
     </table>
 
